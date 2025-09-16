@@ -1,3 +1,8 @@
+"""
+python fcs_z00_trimming_fcsdata.py --dataloc $FCS_DATA_DIR
+or in Jupyter Notebook
+%run fcs_z00_trimming_fcsdata.py --dataloc $FCS_DATA_DIR
+"""
 import os, argparse, yaml
 import gzip
 import flowkit as fk
