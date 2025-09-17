@@ -75,10 +75,12 @@ if __name__ == "__main__":
     new_column_list = [cn[(cn.index('_')+1):(len(cn))].replace('_',"") for cn in column_list[0:(fcs_df_trimmed.shape[1]-1)]]
     fcs_df_trimmed.columns = new_column_list+['sample_id']
     fcs_df_trimmed.head(2)
+
+    file_path = "fcs_df_trimmed.pqt"
+    fcs_df_trimmed.write_parquet(file_path)
+    # file_path = "fcs_df_trimmed.csv.gz"
+    # with gzip.open(file_path, "wb") as f:
+    #     fcs_df_trimmed.write_csv(f)
     
-    file_path = "fcs_df_trimmed.csv.gz"
-    with gzip.open(file_path, "wb") as f:
-        fcs_df_trimmed.write_csv(f)
-    
-    print(f'\n\nfcs data only with relavant markers saved. {file_path}')
+    print(f'\n\nfcs data only with relavant markers saved. {file_path}. It is a parquet file of Polars.' )
 
